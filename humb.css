@@ -1,0 +1,73 @@
+#humbtoggle {
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    background-color: crimson;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+    right: 0px;
+}
+
+.humb {
+    position: relative;
+    /* right: 15px; */
+    width: 30px;
+    height: 3px;
+    z-index: 2;
+    background-color: black;
+    transition: 0.25s;
+    display: none;
+}
+
+@media (max-width:768px) {
+    .humb {
+        display: block;
+    }
+}
+
+.humb::before,
+.humb::after {
+    position: absolute;
+    content: "";
+    background-color: black;
+    right: 0;
+    transition: 0.25s;
+}
+
+.humb::before {
+    width: 35px;
+    height: 3px;
+    top: -10px;
+    transition: 0.25s;
+}
+
+.humb::after {
+    width: 25px;
+    height: 3px;
+    top: 10px;
+    transition: 0.25s;
+}
+
+#humbtoggle:checked ~ .humb {
+    background-color: transparent;
+}
+
+#humbtoggle:checked ~ .humb::before {
+    top: 0;
+    transform: rotate(45deg);
+    transition: 0.25s;
+}
+
+#humbtoggle:checked ~ .humb::after {
+    top: 0;
+    transform: rotate(-45deg);
+    transition: 0.25s;
+    width: 35px;
+}
+
+#humbtoggle:checked ~ .nav__list {
+    right: -45px;
+    transition: 0.25s;
+    
+}
